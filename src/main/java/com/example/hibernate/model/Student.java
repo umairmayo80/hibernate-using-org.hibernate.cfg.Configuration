@@ -5,8 +5,8 @@ package com.example.hibernate.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "student")
+@Entity //Entity(name="student_details") it will change both entity name and table name, and we can also use the student_details name in HQL
+@Table(name = "student") //only the table name will be updated to student
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,20 +20,24 @@ public class Student {
     private String lastName;
     private String email;
 
+    private int marks;
+
     public Student() {
         super();
     }
 
-    public Student(int id, String firstName, String lastName, String email) {
+    public Student(int id, String firstName, String lastName, String email, int marks) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-    }    public Student(String firstName, String lastName, String email) {
+        this.marks = marks;
+    }    public Student(String firstName, String lastName, String email, int marks) {
         id = 0;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.marks = marks;
     }
 
     public int getId() {
@@ -66,5 +70,17 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", marks='" + marks + '\'' +
+                '}';
     }
 }
