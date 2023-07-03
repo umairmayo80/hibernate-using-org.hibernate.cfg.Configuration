@@ -1,0 +1,4 @@
+com\example\hibernate\model\Student.class
+com\example\hibernate\dao\StudentDao.class
+com\example\hibernate\App.class
+com\example\hibernate\util\HibernateConnectionConfig.class
